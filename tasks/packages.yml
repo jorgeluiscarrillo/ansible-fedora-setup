@@ -96,3 +96,12 @@
   tags:
     - packages
     - desktop
+
+- name: Flatpak | Install Slack flatpak
+  flatpak:
+    name: com.slack.Slack
+    method: system
+  tags:
+    - packages
+    - flatpak
+    - slack
