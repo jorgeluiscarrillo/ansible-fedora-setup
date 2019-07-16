@@ -62,7 +62,6 @@
       - firefox
       - fontconfig-enhanced-defaults
       - fontconfig-font-replacements
-      - git
       - htop
       - i3
       - i3status
