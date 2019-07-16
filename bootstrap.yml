@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Create temporary download directory
+      file:
+        path: tmp
+        state: directory
+
+    - include: tasks/packages.yml
+
+    - name: Delete temporary download directory
+      file:
+        path: tmp
+        statue: absent

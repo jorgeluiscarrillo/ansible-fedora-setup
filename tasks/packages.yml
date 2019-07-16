@@ -1,0 +1,98 @@
+---
+- name: DNF | Upgrade system
+  become: yes
+  dnf:
+    name: '*'
+    state: latest
+  tags:
+    - packages
+
+- name: DNF | Install wireless firmware (ThinkPad X220)
+  become: yes
+  dnf:
+    name:
+      - iwl6000g2a-firmware
+    state: present
+  tags:
+    - packages
+    - firmware
+
+- name: DNF | Install package groups
+  become: yes
+  dnf:
+    name:
+      - @development-tools
+      - @multimedia
+      - @printing
+      - @standard
+      - @virtualization
+    state: present
+  tags:
+    - packages
+    - groups
+
+- name: DNF | Install Xorg
+  become: yes
+  dnf:
+    name:
+      - mesa-dri-drivers
+      - xorg-x11-drv-libinput
+      - xorg-x11-server-Xorg
+      - xorg-x11-utils
+      - xorg-x11-xinit
+    state: present
+  tags:
+    - packages
+    - xorg
+
+- name: DNF | Install common desktop software
+  become: yes
+  dnf:
+    name:
+      - ImageMagick
+      - NetworkManager-wifi
+      - ShellCheck
+      - adwaita-qt5
+      - arandr
+      - atool
+      - compton
+      - dunst
+      - feh
+      - ffmpeg
+      - firefox
+      - fontconfig-enhanced-defaults
+      - fontconfig-font-replacements
+      - git
+      - htop
+      - i3
+      - i3status
+      - java-1.8.0-openjdk
+      - keepassxc
+      - kitty
+      - libreoffice-writer
+      - light
+      - mediainfo
+      - mpv
+      - neofetch
+      - neovim
+      - nm-connection-editor
+      - nnn
+      - pavucontrol
+      - pmount
+      - polkit-gnome
+      - redshift
+      - rofi
+      - scrot
+      - simplescreenrecorder
+      - stow
+      - sxiv
+      - transmission-gtk
+      - udiskie
+      - xclip
+      - youtube-dl
+      - zathura
+      - zathura-pdf-poppler
+    state: present
+  tags:
+    - packages
+    - desktop
