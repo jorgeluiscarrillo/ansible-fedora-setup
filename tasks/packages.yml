@@ -21,11 +21,11 @@
   become: yes
   dnf:
     name:
-      - @development-tools
-      - @multimedia
-      - @printing
-      - @standard
-      - @virtualization
+      - '@development-tools'
+      - '@multimedia'
+      - '@printing'
+      - '@standard'
+      - '@virtualization'
     state: present
   tags:
     - packages
