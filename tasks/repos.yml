@@ -19,17 +19,17 @@
 - name: Fedora Copr | Enable Copr repo for better_fonts by dawid
   become: yes
   command: "dnf copr enable -y dawid/better_fonts"
-	args:
-  	creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo
-	tags: 
-		- copr
-		- fonts
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo
+  tags:
+    - copr
+    - fonts
 
 - name: Fedora Copr | Enable Copr repo for kitty-latest by gagbo
   become: yes
   command: "dnf copr enable -y gagbo/kitty-latest"
-	args:
-  	creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:gagbo:kitty-latest.repo
-	tags: 
-		- copr
-		- kitty
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:gagbo:kitty-latest.repo
+  tags:
+  - copr
+  - kitty
