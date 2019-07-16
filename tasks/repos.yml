@@ -26,8 +26,3 @@
   args:
     creates: '/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:gagbo:kitty-latest.repo'
   tags: [ 'copr', 'kitty' ]
-
-- name: 'Enable Flathub repository'
-  become: yes
-  command: 'flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo'
-  tags: 'flatpak'

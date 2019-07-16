@@ -47,9 +47,3 @@
     name: [ 'ImageMagick', 'ShellCheck', 'arandr', 'atool', 'ffmpeg', 'firefox', 'htop', 'java-1.8.0-openjdk', 'keepassxc', 'kitty', 'libreoffice-writer', 'mediainfo', 'mpv', 'neofetch', 'neovim', 'nnn', 'pavucontrol', 'pmount', 'simplescreenrecorder', 'stow', 'sxiv', 'transmission-gtk', 'xclip', 'youtube-dl', 'zathura', 'zathura-pdf-poppler' ]
     state: 'present'
   tags: [ 'packages', 'extra' ]
-
-- name: 'Flatpak | Install Slack flatpak'
-  flatpak:
-    name: 'com.slack.Slack'
-    method: 'system'
-  tags: [ 'packages', 'flatpak', 'slack' ]
