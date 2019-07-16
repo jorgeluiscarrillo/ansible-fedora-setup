@@ -7,9 +7,10 @@
         path: tmp
         state: directory
 
+    - include: tasks/repos.yml
     - include: tasks/packages.yml
 
     - name: Delete temporary download directory
       file:
         path: tmp
-        statue: absent
+        state: absent
