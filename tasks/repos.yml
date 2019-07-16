@@ -1,41 +1,33 @@
 ---
-- name: RPM Fusion | Add RPM Fusion GPG key
+- name: 'RPM Fusion | Add RPM Fusion GPG key'
   become: yes
   rpm_key:
-    state: present
+    state: 'present'
     key: "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_distribution_major_version }}"
-  tags:
-    - rpmfusion
+  tags: 'rpmfusion'
 
-- name: RPM Fusion | Install RPM Fusion free
+- name: 'RPM Fusion | Install RPM Fusion free'
   become: yes
   dnf:
     name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
-    state: present
-  tags:
-    - rpmfusion
-    - free
+    state: 'present'
+  tags: [ 'rpmfusion', 'free' ]
 
-- name: Fedora Copr | Enable Copr repo for better_fonts by dawid
+- name: 'Fedora Copr | Enable Copr repo for better_fonts by dawid'
   become: yes
-  command: "dnf copr enable -y dawid/better_fonts"
+  command: 'dnf copr enable -y dawid/better_fonts'
   args:
-    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo
-  tags:
-    - copr
-    - fonts
+    creates: '/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo'
+  tags: [ 'copr', 'fonts' ]
 
-- name: Fedora Copr | Enable Copr repo for kitty-latest by gagbo
+- name: 'Fedora Copr | Enable Copr repo for kitty-latest by gagbo'
   become: yes
-  command: "dnf copr enable -y gagbo/kitty-latest"
+  command: 'dnf copr enable -y gagbo/kitty-latest'
   args:
-    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:gagbo:kitty-latest.repo
-  tags:
-    - copr
-    - kitty
+    creates: '/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:gagbo:kitty-latest.repo'
+  tags: [ 'copr', 'kitty' ]
 
-- name: Enable Flathub repository
+- name: 'Enable Flathub repository'
   become: yes
-  command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-  tags:
-    - flatpak
+  command: 'flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo'
+  tags: 'flatpak'

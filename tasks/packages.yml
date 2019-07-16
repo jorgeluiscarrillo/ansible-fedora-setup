@@ -1,106 +1,55 @@
 ---
-- name: DNF | Upgrade system
+- name: 'DNF | Upgrade system'
   become: yes
   dnf:
     name: '*'
-    state: latest
-  tags:
-    - packages
+    state: 'latest'
+  tags: 'packages'
 
-- name: DNF | Install wireless firmware (ThinkPad X220)
+- name: 'DNF | Install wireless firmware (ThinkPad X220) and wireless tools'
   become: yes
   dnf:
-    name:
-      - iwl6000g2a-firmware
-    state: present
-  tags:
-    - packages
-    - firmware
+    name: [ 'iwl6000g2a-firmware' , 'NetworkManager-wifi', 'nm-connection-editor' ]
+    state: 'present'
+  tags: [ 'packages', 'firmware', 'wifi' ]
 
-- name: DNF | Install package groups
+- name: 'DNF | Install package groups'
   become: yes
   dnf:
-    name:
-      - '@development-tools'
-      - '@multimedia'
-      - '@printing'
-      - '@standard'
-      - '@virtualization'
-    state: present
-  tags:
-    - packages
-    - groups
+    name: [ '@development-tools', '@multimedia', '@printing', '@standard', '@virtualization' ]
+    state: 'present'
+  tags: [ 'packages', 'groups' ]
 
-- name: DNF | Install Xorg
+- name: 'DNF | Install xorg packages'
   become: yes
   dnf:
-    name:
-      - mesa-dri-drivers
-      - xorg-x11-drv-libinput
-      - xorg-x11-server-Xorg
-      - xorg-x11-utils
-      - xorg-x11-xinit
-    state: present
-  tags:
-    - packages
-    - xorg
+    name: [ 'mesa-dri-drivers', 'xorg-x11-drv-libinput', 'xorg-x11-server-Xorg', 'xorg-x11-utils', 'xorg-x11-xinit' ]
+    state: 'present'
+  tags: [ 'packages', 'xorg' ]
 
-- name: DNF | Install common desktop software
+- name: 'DNF | Install desktop packages'
   become: yes
   dnf:
-    name:
-      - ImageMagick
-      - NetworkManager-wifi
-      - ShellCheck
-      - adwaita-qt5
-      - arandr
-      - atool
-      - compton
-      - dunst
-      - feh
-      - ffmpeg
-      - firefox
-      - fontconfig-enhanced-defaults
-      - fontconfig-font-replacements
-      - htop
-      - i3
-      - i3status
-      - java-1.8.0-openjdk
-      - keepassxc
-      - kitty
-      - libreoffice-writer
-      - light
-      - mediainfo
-      - mpv
-      - neofetch
-      - neovim
-      - nm-connection-editor
-      - nnn
-      - pavucontrol
-      - pmount
-      - polkit-gnome
-      - redshift
-      - rofi
-      - scrot
-      - simplescreenrecorder
-      - stow
-      - sxiv
-      - transmission-gtk
-      - udiskie
-      - xclip
-      - youtube-dl
-      - zathura
-      - zathura-pdf-poppler
-    state: present
-  tags:
-    - packages
-    - desktop
+    name: [ 'compton', 'dunst', 'feh', 'i3', 'i3status', 'light', 'polkit-gnome', 'redshift', 'rofi', 'scrot', 'udiskie' ]
+    state: 'present'
+  tags: [ 'packages', 'desktop' ]
 
-- name: Flatpak | Install Slack flatpak
+- name: 'DNF | Install fontconfig'
+  become: yes
+  dnf:
+    name: [ 'fontconfig-enhanced-defaults', 'fontconfig-font-replacements' ]
+    state: 'present'
+  tags: [ 'packages', 'fonts' ]
+
+- name: 'DNF | Install extra packages'
+  become: yes
+  dnf:
+    name: [ 'ImageMagick', 'ShellCheck', 'arandr', 'atool', 'ffmpeg', 'firefox', 'htop', 'java-1.8.0-openjdk', 'keepassxc', 'kitty', 'libreoffice-writer', 'mediainfo', 'mpv', 'neofetch', 'neovim', 'nnn', 'pavucontrol', 'pmount', 'simplescreenrecorder', 'stow', 'sxiv', 'transmission-gtk', 'xclip', 'youtube-dl', 'zathura', 'zathura-pdf-poppler' ]
+    state: 'present'
+  tags: [ 'packages', 'extra' ]
+
+- name: 'Flatpak | Install Slack flatpak'
   flatpak:
-    name: com.slack.Slack
-    method: system
-  tags:
-    - packages
-    - flatpak
-    - slack
+    name: 'com.slack.Slack'
+    method: 'system'
+  tags: [ 'packages', 'flatpak', 'slack' ]

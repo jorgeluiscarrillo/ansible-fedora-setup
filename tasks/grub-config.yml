@@ -1,15 +1,15 @@
 ---
-- name: Configuration | Disable grub graphical boot
+- name: 'Configuration | Disable grub graphical (rhgb) boot'
   become: yes
   lineinfile:
-    dest: /etc/default/grub
+    dest: '/etc/default/grub'
     line: 'GRUB_CMDLINE_LINUX="\1\3"'
     regexp: '^GRUB_CMDLINE_LINUX="(.*)( )?rhgb(.*)"$'
     backrefs: yes
-    state: present
-  tags: [ "grub", "configuration" ]
+    state: 'present'
+  tags: [ 'grub', 'configuration' ]
 
-- name: Update grub2 configuration file
+- name: 'Configuration | Update grub2 configuration file'
   become: yes
-  command: "/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg"
-  tags: [ "grub", "configuration" ]
+  command: '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
+  tags: [ 'grub', 'configuration' ]
