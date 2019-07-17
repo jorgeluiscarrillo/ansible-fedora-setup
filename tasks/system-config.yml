@@ -1,16 +1,18 @@
 ---
-- name: 'systemd | Enable fstrim timer (Periodic TRIM for SSDs)'
+- name: 'Configuration | Enable Periodic TRIM for SSDs'
   become: yes
   systemd:
     name: 'fstrim.timer'
     state: 'started'
     enabled: yes
+  tags: [ 'configuration', 'systemd', 'ssd' ]
 
 - name: 'Configuration | Reduce sysctl swappiness'
   become: yes
   lineinfile:
     path: '/etc/sysctl.d/99-sysctl.conf'
     line: 'vm.swappiness=1'
+  tags: [ 'configuration', 'sysctl' ]
 
 - name: 'Configuration | Disable grub graphical (rhgb) boot'
   become: yes
@@ -21,10 +23,10 @@
     backrefs: yes
     state: 'present'
   register: 'grub'
-  tags: [ 'grub', 'configuration' ]
+  tags: [ 'configuration', 'grub' ]
 
 - name: 'Configuration | Update grub2 configuration file'
   become: yes
   command: '/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg'
   when: 'grub.changed'
-  tags: [ 'grub', 'configuration' ]
+  tags: [ 'configuration', 'grub' ]
