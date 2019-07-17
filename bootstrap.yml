@@ -5,4 +5,5 @@
     - include: tasks/repos.yml
     - include: tasks/packages.yml
     - include: tasks/flatpak.yml
+    - include: tasks/system-config.yml
     - include: tasks/grub-config.yml
