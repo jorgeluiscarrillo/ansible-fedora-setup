@@ -11,7 +11,7 @@
   dnf:
     name: [ 'iwl6000g2a-firmware' , 'NetworkManager-wifi', 'nm-connection-editor' ]
     state: 'present'
-  tags: [ 'packages', 'firmware', 'wifi' ]
+  tags: [ 'packages', 'wireless' ]
 
 - name: 'DNF | Install package groups'
   become: yes
@@ -34,6 +34,13 @@
     state: 'present'
   tags: [ 'packages', 'desktop' ]
 
+- name: 'DNF | Install extra packages'
+  become: yes
+  dnf:
+    name: [ 'ImageMagick', 'ShellCheck', 'arandr', 'atool', 'ffmpeg', 'firefox', 'htop', 'java-1.8.0-openjdk', 'keepassxc', 'kitty', 'libreoffice-writer', 'mediainfo', 'mpv', 'neovim', 'nnn', 'pavucontrol', 'simplescreenrecorder', 'stow', 'transmission-gtk', 'youtube-dl', 'zathura', 'zathura-pdf-poppler' ]
+    state: 'present'
+  tags: [ 'packages', 'extra' ]
+
 - name: 'DNF | Install fontconfig'
   become: yes
   dnf:
@@ -41,9 +48,10 @@
     state: 'present'
   tags: [ 'packages', 'fonts' ]
 
-- name: 'DNF | Install extra packages'
+- name: 'DNF | Install flatpak'
   become: yes
   dnf:
-    name: [ 'ImageMagick', 'ShellCheck', 'arandr', 'atool', 'ffmpeg', 'firefox', 'htop', 'java-1.8.0-openjdk', 'keepassxc', 'kitty', 'libreoffice-writer', 'mediainfo', 'mpv', 'neofetch', 'neovim', 'nnn', 'pavucontrol', 'pmount', 'simplescreenrecorder', 'stow', 'sxiv', 'transmission-gtk', 'xclip', 'youtube-dl', 'zathura', 'zathura-pdf-poppler' ]
+    name:
+      - flatpak
     state: 'present'
-  tags: [ 'packages', 'extra' ]
+  tags: [ 'packages', 'flatpak' ]
