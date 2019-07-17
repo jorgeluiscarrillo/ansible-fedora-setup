@@ -1,0 +1,11 @@
+---
+- name: 'Flatpak | Enable Flathub repository'
+  become: yes
+  command: 'flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo'
+  tags: 'flatpak'
+
+- name: 'Flatpak | Install Slack flatpak'
+  flatpak:
+    name: 'com.slack.Slack'
+    method: 'system'
+  tags: [ 'packages', 'flatpak', 'slack' ]
