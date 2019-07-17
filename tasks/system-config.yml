@@ -1,0 +1,11 @@
+---
+- name: 'systemd | Enable fstrim timer (Periodic TRIM for SSDs)'
+  systemd:
+    name: 'fstrim.timer'
+    state: 'started'
+    enabled: yes
+
+- name: 'Configuration | Reduce sysctl swappiness'
+  lineinfile:
+    path: '/etc/sysctl.d/99-sysctl.conf'
+    line: 'vm.swappiness=1'
