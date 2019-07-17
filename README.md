@@ -11,13 +11,13 @@ A basic Ansible playbook that configures my Fedora systems following a minimal i
 2. Clone this repository: `git clone git://github.com/jorgeluiscarrillo/ansible-fedora-setup`
 
 ### Running the Playbook
-Change into the playbook directory and run `ansible-playbook`. This will install the [default configuration](#default-configuration).
+Change into the playbook directory and run `ansible-playbook`. This will install the [default configuration](#default-configuration).:
 ```bash
 cd ansible-fedora-setup/ && ansible-playbook bootstrap.yml -K
 ```
 
 #### Running a specific set of tags
-You may skip a part of the provisioning process by using the `--skip-tags` flag.
+You may skip a part of the provisioning process by using the `--skip-tags` flag. Some examples of tags you can use are: `copr`, `rpmfusion`, `flatpak`, `packages`, `desktop`, `extra`, `fonts`.
 
 For example, if you did not want to install any flatpak packages:
 ```
