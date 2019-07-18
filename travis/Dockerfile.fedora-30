@@ -16,7 +16,7 @@ RUN dnf -y update && dnf -y install systemd && dnf clean all && \
 # Install Ansible and other requirements.
 RUN dnf makecache \
   && dnf -y install \
-    @development-tools
+    @development-tools \
     ansible \
     sudo \
     which \
