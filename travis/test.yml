@@ -1,6 +1,5 @@
 ---
 - hosts: all
-  ansible_python_interpreter: /usr/bin/python3
 
   pre_tasks:
     - name: Ensure build dependencies are installed
