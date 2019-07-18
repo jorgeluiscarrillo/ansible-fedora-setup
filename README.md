@@ -5,7 +5,7 @@ A basic Ansible playbook that configures my Fedora systems following a minimal i
 
 ## Usage
 ### Requirements
-*  Fedora 30
+*  Fedora 29/30
 *  Ansible 2.7+
 
 ### Pre-installation
@@ -28,7 +28,7 @@ ansible-playbook bootstrap.yml -K --skip-tags "flatpak"
 The playbook will run the following tasks:
 *  `repos.yml`: Enable RPM Fusion (free) and Fedora Copr repositories for
    [kitty](https://github.com/kovidgoyal/kitty) and [fedora-better-fonts](https://github.com/silenc3r/fedora-better-fonts).
-* `packages.yml`: Installs my most used software. My desktop is focused around i3 window manager.
+* `packages.yml`: Installs my most used software.
 * `flatpak.yml`: Enables the Flathub repository and installs the Slack flatpak.
 * `system-config.yml`: Applies system configurations (e.g., enable periodic TRIM, disable GRUB graphical boot).
 
