@@ -1,18 +1,12 @@
 ---
 - hosts: all
+  ansible_python_interpreter=/usr/bin/python3
 
   pre_tasks:
     - name: Ensure build dependencies are installed
       dnf:
-        name: "{{ item }}"
+        name: [ '@Development tools', 'tar', 'unzip', 'sudo', 'which' ]
         state: installed
-      with_items:
-        - "@Development tools"
-        - tar
-        - unzip
-        - sudo
-        - which
-      when: ansible_distribution == 'Fedora'
 
   roles:
     - bootstrap_role
