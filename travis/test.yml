@@ -1,0 +1,18 @@
+---
+- hosts: all
+
+  pre_tasks:
+    - name: Ensure build dependencies are installed
+      package:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "@Development tools"
+        - tar
+        - unzip
+        - sudo
+        - which
+      when: ansible_distribution == 'Fedora'
+
+  roles:
+    - bootstrap_role
