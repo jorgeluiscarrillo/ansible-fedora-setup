@@ -3,9 +3,9 @@
 
   pre_tasks:
     - name: Ensure build dependencies are installed
-      package:
+      dnf:
         name: "{{ item }}"
-        state: present
+        state: installed
       with_items:
         - "@Development tools"
         - tar
