@@ -37,7 +37,7 @@
 - name: 'DNF | Install extra packages'
   become: yes
   dnf:
-    name: [ 'ImageMagick', 'ShellCheck', 'arandr', 'atool', 'ffmpeg', 'firefox', 'htop', 'java-1.8.0-openjdk', 'keepassxc', 'kitty', 'libreoffice-writer', 'mediainfo', 'mpv', 'neovim', 'nnn', 'pavucontrol', 'simplescreenrecorder', 'stow', 'transmission-gtk', 'youtube-dl', 'zathura', 'zathura-pdf-poppler' ]
+    name: [ 'ImageMagick', 'ShellCheck', 'arandr', 'atool', 'ffmpeg', 'firefox', 'htop', 'java-11-openjdk', 'jq', 'keepassxc', 'kitty', 'libreoffice-writer', 'mediainfo', 'mpv', 'neovim', 'nnn', 'pavucontrol', 'simplescreenrecorder', 'stow', 'transmission-gtk', 'youtube-dl', 'zathura', 'zathura-pdf-poppler' ]
     state: 'present'
   tags: [ 'packages', 'extra' ]
 
