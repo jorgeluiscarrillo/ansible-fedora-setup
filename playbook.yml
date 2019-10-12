@@ -1,9 +1,11 @@
 ---
 - hosts: localhost
   become: yes
+  gather_facts: no
 
   tasks:
     - include: tasks/repos.yml
     - include: tasks/packages.yml
     - include: tasks/flatpak.yml
+    - include: tasks/theme.yml
     - include: tasks/system.yml

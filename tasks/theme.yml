@@ -1,0 +1,6 @@
+---
+- name: GitHub | Clone base16-shell repository
+  git:
+    repo: https://github.com/chriskempson/base16-shell.git
+    dest: "{{ lookup('file', lookup('env','HOME') + '/.config') }}"
+  tags: base16

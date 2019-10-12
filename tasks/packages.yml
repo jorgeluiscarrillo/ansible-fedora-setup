@@ -39,9 +39,3 @@
     name: "{{ better_fonts }}"
     state: present
   tags: better_fonts
-
-- name: GitHub | Clone base16-shell repository
-  git:
-    repo: https://github.com/chriskempson/base16-shell.git
-    dest: "{{ lookup('file', lookup('env','HOME') + '/.config/base16-shell') }}"
-  tags: base16
