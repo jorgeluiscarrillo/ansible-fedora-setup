@@ -4,11 +4,6 @@
     name: com.discordapp.Discord
   tags: [ flatpak, discord ]
 
-- name: Flatpak | Install Discord from Flathub
-  flatpak:
-    name: com.discordapp.Discord
-  tags: [ flatpak, discord ]
-
 - name: Flatpak | Install Slack from Flathub
   flatpak:
     name: com.slack.Slack
