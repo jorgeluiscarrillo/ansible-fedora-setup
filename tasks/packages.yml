@@ -6,7 +6,7 @@
 
 - name: DNF | Install development tools
   dnf:
-    name: "{{ dev_packages }}"
+    name: "{{ dev_tools }}"
     state: present
   tags: dev-tools
 
