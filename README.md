@@ -1,5 +1,4 @@
 # ansible-fedora-setup
-[![Build Status](https://travis-ci.org/jorgeluiscarrillo/ansible-fedora-setup.svg?branch=master)](https://travis-ci.org/jorgeluiscarrillo/ansible-fedora-setup)
 
 A basic Ansible playbook that configures my Fedora systems following a minimal install.
 
