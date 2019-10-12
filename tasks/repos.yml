@@ -16,4 +16,4 @@
   command: dnf copr enable -y dawid/better_fonts
   args:
     creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo
-  tags: copr
+  tags: [ copr, better_fonts ]

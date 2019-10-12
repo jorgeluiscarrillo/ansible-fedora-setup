@@ -39,6 +39,6 @@ rpmfusion_packages:
   - mpv
   - simplescreenrecorder
 
-copr_packages:
+better_fonts:
   - fontconfig-enhanced-defaults
   - fontconfig-font-replacements
