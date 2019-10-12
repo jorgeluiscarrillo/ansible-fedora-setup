@@ -1,14 +1,17 @@
-- name: Flatpak | Install Discord from Flathub
-  flatpak:
-    name: com.discordapp.Discord
-  tags: [ flatpak, discord ]
+---
+- block:
+  - name: Flatpak | Install Discord from Flathub
+    flatpak:
+      name: com.discordapp.Discord
+    tags: [ flatpak, discord ]
 
-- name: Flatpak | Install Slack from Flathub
-  flatpak:
-    name: com.slack.Slack
-  tags: [ flatpak, slack ]
+  - name: Flatpak | Install Slack from Flathub
+    flatpak:
+      name: com.slack.Slack
+    tags: [ flatpak, slack ]
 
-- name: Flatpak | Install VSCode from Flathub
-  flatpak:
-    name: com.visualstudio.code.oss
-  tags: [ flatpak, vscode ]
+  - name: Flatpak | Install VSCode from Flathub
+    flatpak:
+      name: com.visualstudio.code.oss
+    tags: [ flatpak, vscode ]
+  become: yes

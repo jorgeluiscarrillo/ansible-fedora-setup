@@ -1,41 +1,43 @@
 ---
-- name: DNF | Upgrade all packages
-  dnf:
-    name: "*"
-    state: latest
+- block:
+  - name: DNF | Upgrade all packages
+    dnf:
+      name: "*"
+      state: latest
 
-- name: DNF | Install development tools
-  dnf:
-    name: "{{ dev_tools }}"
-    state: present
-  tags: dev-tools
+  - name: DNF | Install development tools
+    dnf:
+      name: "{{ dev_tools }}"
+      state: present
+    tags: dev-tools
 
-- name: DNF | Install CLI tools
-  dnf:
-    name: "{{ cli_tools }}"
-    state: present
-  tags: cli-tools
+  - name: DNF | Install CLI tools
+    dnf:
+      name: "{{ cli_tools }}"
+      state: present
+    tags: cli-tools
 
-- name: DNF | Install i3wm packages
-  dnf:
-    name: "{{ i3_packages }}"
-    state: present
-  tags: i3
+  - name: DNF | Install i3wm packages
+    dnf:
+      name: "{{ i3_packages }}"
+      state: present
+    tags: i3
 
-- name: DNF | Install extra packages
-  dnf:
-    name: "{{ extra_packages }}"
-    state: present
-  tags: extras
+  - name: DNF | Install extra packages
+    dnf:
+      name: "{{ extra_packages }}"
+      state: present
+    tags: extras
 
-- name: DNF | Install packages from RPM Fusion free
-  dnf:
-    name: "{{ rpmfusion_packages }}"
-    state: present
-  tags: rpmfusion
+  - name: DNF | Install packages from RPM Fusion free
+    dnf:
+      name: "{{ rpmfusion_packages }}"
+      state: present
+    tags: rpmfusion
 
-- name: DNF | Install dawid/better_fonts from Fedora Copr
-  dnf:
-    name: "{{ better_fonts }}"
-    state: present
-  tags: better_fonts
+  - name: DNF | Install dawid/better_fonts from Fedora Copr
+    dnf:
+      name: "{{ better_fonts }}"
+      state: present
+    tags: better_fonts
+  become: yes
