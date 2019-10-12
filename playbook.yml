@@ -1,8 +1,8 @@
 ---
 - hosts: localhost
+  become: yes
 
   tasks:
     - include: tasks/repos.yml
     - include: tasks/packages.yml
-    - include: tasks/flatpak.yml
-    - include: tasks/system-config.yml
+    - include: tasks/system.yml

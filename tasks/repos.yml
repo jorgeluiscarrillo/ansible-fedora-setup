@@ -1,28 +1,19 @@
 ---
-- name: 'RPM Fusion | Add RPM Fusion GPG key'
-  become: yes
-  rpm_key:
-    state: 'present'
-    key: "https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-{{ ansible_distribution_major_version }}"
-  tags: [ 'repos', 'rpmfusion' ]
-
-- name: 'RPM Fusion | Install RPM Fusion free'
-  become: yes
+- name: RPM Fusion | Enable RPM Fusion free repository
   dnf:
     name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
-    state: 'present'
-  tags: [ 'repos', 'rpmfusion', 'free' ]
+    state: present
+  tags: rpmfusion
 
-- name: 'Fedora Copr | Enable Copr repo for better_fonts by dawid'
-  become: yes
-  command: 'dnf copr enable -y dawid/better_fonts'
-  args:
-    creates: '/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo'
-  tags: [ 'repos', 'copr', 'fonts' ]
+- name: Flatpak | Enable Flathub repository
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+  tags: flatpak
 
-- name: 'Fedora Copr | Enable Copr repo for kitty-latest by gagbo'
-  become: yes
-  command: 'dnf copr enable -y gagbo/kitty-latest'
+- name: Fedora Copr | Enable Copr repository for dawid/better_fonts
+  command: dnf copr enable -y dawid/better_fonts
   args:
-    creates: '/etc/yum.repos.d/_copr:copr.fedorainfracloud.org:gagbo:kitty-latest.repo'
-  tags: [ 'repos', 'copr', 'kitty' ]
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo
+  tags: copr

@@ -1,0 +1,49 @@
+dev_tools:
+  - '@development-tools'
+  - '@virtualization'
+  - ShellCheck
+  - java-11-openjdk
+
+cli_tools:
+  - htop
+  - jq
+  - neovim
+  - nnn
+  - python3-streamlink
+  - stow
+  - tldr
+  - youtube-dl
+
+i3_packages:
+  - arandr
+  - compton
+  - dunst
+  - feh
+  - i3
+  - i3status
+  - light
+  - network-manager-applet
+  - pavucontrol
+  - polkit-gnome
+  - redshift
+  - rofi
+
+extra_packages:
+  - gimp
+  - keepassxc
+  - powerline-fonts
+  - transmission
+
+rpmfusion_packages:
+  - ffmpeg
+  - mpv
+  - simplescreenrecorder
+
+copr_packages:
+  - fontconfig-enhanced-defaults
+  - fontconfig-font-replacements
+
+flatpak_apps:
+  - com.discordapp.Discord
+  - com.slack.Slack
+  - com.visualstudio.code.oss

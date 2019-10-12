@@ -1,57 +1,46 @@
 ---
-- name: 'DNF | Upgrade system'
-  become: yes
+- name: DNF | Upgrade all packages
   dnf:
-    name: '*'
-    state: 'latest'
-  tags: 'packages'
+    name: "*"
+    state: latest
 
-- name: 'DNF | Install wireless firmware (ThinkPad X220) and wireless tools'
-  become: yes
+- name: DNF | Install development tools
   dnf:
-    name: [ 'iwl6000g2a-firmware' , 'NetworkManager-wifi', 'nm-connection-editor' ]
-    state: 'present'
-  tags: [ 'packages', 'wireless' ]
+    name: "{{ dev_packages }}"
+    state: present
+  tags: dev-tools
 
-- name: 'DNF | Install package groups'
-  become: yes
+- name: DNF | Install CLI tools
   dnf:
-    name: [ '@development-tools', '@multimedia', '@printing', '@standard', '@virtualization' ]
-    state: 'present'
-  tags: [ 'packages', 'groups' ]
+    name: "{{ cli_tools }}"
+    state: present
+  tags: cli-tools
 
-- name: 'DNF | Install xorg packages'
-  become: yes
+- name: DNF | Install i3wm packages
   dnf:
-    name: [ 'mesa-dri-drivers', 'xorg-x11-drv-libinput', 'xorg-x11-server-Xorg', 'xorg-x11-utils', 'xorg-x11-xinit' ]
-    state: 'present'
-  tags: [ 'packages', 'xorg' ]
+    name: "{{ i3_packages }}"
+    state: present
+  tags: i3
 
-- name: 'DNF | Install desktop packages'
-  become: yes
+- name: DNF | Install extra packages
   dnf:
-    name: [ 'compton', 'dunst', 'feh', 'i3', 'i3status', 'light', 'polkit-gnome', 'redshift', 'rofi', 'scrot', 'udiskie' ]
-    state: 'present'
-  tags: [ 'packages', 'desktop' ]
+    name: "{{ extra_packages }}"
+    state: present
+  tags: extras
 
-- name: 'DNF | Install extra packages'
-  become: yes
+- name: DNF | Install packages from RPM Fusion free
   dnf:
-    name: [ 'ImageMagick', 'ShellCheck', 'arandr', 'atool', 'ffmpeg', 'firefox', 'htop', 'java-11-openjdk', 'jq', 'keepassxc', 'kitty', 'libreoffice-writer', 'mediainfo', 'mpv', 'neovim', 'nnn', 'pavucontrol', 'simplescreenrecorder', 'stow', 'transmission-gtk', 'youtube-dl', 'zathura', 'zathura-pdf-poppler' ]
-    state: 'present'
-  tags: [ 'packages', 'extra' ]
+    name: "{{ rpmfusion_packages }}"
+    state: present
+  tags: rpmfusion
 
-- name: 'DNF | Install fontconfig'
-  become: yes
+- name: DNF | Install packages from Fedora Copr
   dnf:
-    name: [ 'fontconfig-enhanced-defaults', 'fontconfig-font-replacements' ]
-    state: 'present'
-  tags: [ 'packages', 'fonts' ]
+    name: "{{ copr_packages }}"
+    state: present
+  tags: copr
 
-- name: 'DNF | Install flatpak'
-  become: yes
-  dnf:
-    name:
-      - flatpak
-    state: 'present'
-  tags: [ 'packages', 'flatpak' ]
+- name: Flatpak | Install packages from Flathub
+  flatpak:
+    name: "{{ flatpak_apps }}"
+  tags: flatpak
