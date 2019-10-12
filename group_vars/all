@@ -42,8 +42,3 @@ rpmfusion_packages:
 copr_packages:
   - fontconfig-enhanced-defaults
   - fontconfig-font-replacements
-
-flatpak_apps:
-  - com.discordapp.Discord
-  - com.slack.Slack
-  - com.visualstudio.code.oss

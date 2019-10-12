@@ -39,8 +39,3 @@
     name: "{{ copr_packages }}"
     state: present
   tags: copr
-
-- name: Flatpak | Install packages from Flathub
-  flatpak:
-    name: "{{ flatpak_apps }}"
-  tags: flatpak
