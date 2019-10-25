@@ -39,3 +39,10 @@
     name: "{{ better_fonts }}"
     state: present
   tags: better_fonts
+
+- name: DNF | Install pschyska/alacritty from Fedora Copr
+  dnf:
+    name: "{{ alacritty }}"
+    state: present
+  tags: alacritty
+

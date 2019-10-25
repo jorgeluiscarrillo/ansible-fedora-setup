@@ -17,3 +17,10 @@
   args:
     creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo
   tags: [ copr, better_fonts ]
+
+- name: Fedora Copr | Enable Copr repository for pschyska/alacritty
+  command: dnf copr enable -y pschyska/alacritty
+  args:
+    creates: /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:pschyska:alacritty.repo
+  tags: [ copr, alacritty ]
+

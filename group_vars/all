@@ -31,7 +31,6 @@ i3_packages:
 extra_packages:
   - gimp
   - keepassxc
-  - powerline-fonts
   - transmission
 
 rpmfusion_packages:
@@ -42,3 +41,6 @@ rpmfusion_packages:
 better_fonts:
   - fontconfig-enhanced-defaults
   - fontconfig-font-replacements
+
+alacritty:
+  - alacritty
