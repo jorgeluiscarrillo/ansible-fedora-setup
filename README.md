@@ -9,7 +9,7 @@ A basic Ansible playbook that configures Fedora Workstation following a fresh in
 
 ### Pre-installation
 1. Install git and ansible: `dnf install ansible git`
-2. Clone this repository: `git clone git://github.com/jorgeluiscarrillo/ansible-fedora-setup.git`
+2. Clone this repository: `git clone git://github.com/jorgeluiscarrillo/ansible-fedora-setup`
 
 ### Running the Playbook
 Change into the playbook directory and run `ansible-playbook`:
