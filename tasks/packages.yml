@@ -8,13 +8,13 @@
   dnf:
     name: "{{ dev_tools }}"
     state: present
-  tags: dev-tools
+  tags: dev_tools
 
 - name: DNF | Install CLI tools
   dnf:
     name: "{{ cli_tools }}"
     state: present
-  tags: cli-tools
+  tags: cli_tools
 
 - name: DNF | Install i3wm packages
   dnf:
@@ -45,4 +45,3 @@
     name: "{{ alacritty }}"
     state: present
   tags: alacritty
-
