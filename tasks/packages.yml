@@ -4,31 +4,49 @@
     name: "*"
     state: latest
 
-- name: DNF | Install development tools
+- name: DNF | Install essential packages that extend the minimal installation
+  dnf:
+    name: "{{ core }}"
+    state: present
+  tags: core
+
+- name: DNF | Install printing support
+  dnf:
+    name: "{{ printing }}"
+    state: present
+  tags: printing
+
+- name: DNF | Install virtualization environment (virt-manager)
+  dnf:
+    name: "{{ virtualization }}"
+    state: present
+  tags: virtualization
+
+- name: DNF | Install development environment
   dnf:
     name: "{{ dev_tools }}"
     state: present
   tags: dev_tools
 
-- name: DNF | Install CLI tools
+- name: DNF | Install command-line utilities
   dnf:
     name: "{{ cli_tools }}"
     state: present
   tags: cli_tools
 
-- name: DNF | Install i3wm packages
+- name: DNF | Install applications that make up an i3 desktop environment
   dnf:
     name: "{{ i3_packages }}"
     state: present
   tags: i3
 
-- name: DNF | Install extra packages
+- name: DNF | Install GUI applications
   dnf:
     name: "{{ extra_packages }}"
     state: present
   tags: extras
 
-- name: DNF | Install packages from RPM Fusion free
+- name: DNF | Install packages only available through RPMFusion (free)
   dnf:
     name: "{{ rpmfusion_packages }}"
     state: present
@@ -38,10 +56,10 @@
   dnf:
     name: "{{ better_fonts }}"
     state: present
-  tags: better_fonts
+  tags: [ copr, better_fonts ]
 
-- name: DNF | Install pschyska/alacritty from Fedora Copr
+- name: DNF | Install gagbo/kitty-latest from Fedora Copr
   dnf:
-    name: "{{ alacritty }}"
+    name: "{{ kitty }}"
     state: present
-  tags: alacritty
+  tags: [ copr, kitty ]

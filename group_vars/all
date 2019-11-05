@@ -1,46 +1,80 @@
+# Essential packages that extend the minimal installation
+core:
+  - '@base-x'
+  - '@fonts'
+  - '@hardware-support'
+  - '@multimedia'
+  - '@networkmanager-submodules'
+  - '@standard'
+
+# Printing support
+printing: '@printing'
+
+# Virtualization environment (virt-manager)
+virtualization: '@virtualization'
+
+# Development environment
 dev_tools:
   - '@development-tools'
-  - '@virtualization'
-  - ShellCheck
   - java-11-openjdk
 
+# Command-line utilities
 cli_tools:
+  - ImageMagick
+  - ShellCheck
+  - atool
   - htop
   - jq
+  - mediainfo
+  - ncdu
   - neovim
-  - nnn
   - python3-streamlink
+  - ranger
   - stow
   - tldr
   - youtube-dl
 
+# Applications that make up an i3 desktop environment
 i3_packages:
-  - arandr
+  - adwaita-qt5
   - compton
   - dunst
   - feh
   - i3
+  - i3lock
   - i3status
   - light
   - network-manager-applet
-  - pavucontrol
   - polkit-gnome
   - redshift
   - rofi
+  - scrot
+  - udiskie
+  - xss-lock
 
+# GUI applications
 extra_packages:
-  - gimp
+  - '@firefox'
+  - '@libreoffice'
+  - arandr
   - keepassxc
+  - pavucontrol
+  - sxiv
   - transmission
+  - zathura
+  - zathura-pdf-mupdf
 
+# Packages only available through RPMFusion (free)
 rpmfusion_packages:
   - ffmpeg
+  - ffmpegthumbnailer
   - mpv
   - simplescreenrecorder
 
+# Fedora Copr that provides better looking fonts
 better_fonts:
   - fontconfig-enhanced-defaults
   - fontconfig-font-replacements
 
-alacritty:
-  - alacritty
+# Fedora Copr for the kitty terminal
+kitty: kitty
