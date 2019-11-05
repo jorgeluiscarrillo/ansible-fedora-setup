@@ -5,13 +5,6 @@
     state: present
   tags: rpmfusion
 
-- name: Flatpak | Enable Flathub repository
-  flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
-  tags: flatpak
-
 - name: Fedora Copr | Enable Copr repository for dawid/better_fonts
   command: dnf copr enable -y dawid/better_fonts
   args:
