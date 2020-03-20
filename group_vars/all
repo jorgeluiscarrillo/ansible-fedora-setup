@@ -28,6 +28,7 @@ cli_tools:
   - mediainfo
   - ncdu
   - neovim
+  - perl-Image-ExifTool
   - python3-streamlink
   - ranger
   - stow
