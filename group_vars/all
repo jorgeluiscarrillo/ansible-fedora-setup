@@ -20,7 +20,7 @@ dev_tools:
 
 # Command-line utilities
 cli_tools:
-  - ImageMagick
+  - GraphicsMagick
   - ShellCheck
   - atool
   - htop
@@ -45,11 +45,11 @@ i3_packages:
   - i3lock
   - i3status
   - light
+  - maim
   - network-manager-applet
   - polkit-gnome
   - redshift
   - rofi
-  - scrot
   - udiskie
   - xss-lock
 
