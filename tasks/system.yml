@@ -1,6 +1,0 @@
----
-- name: systemd | Enable Periodic TRIM timer
-  systemd:
-    name: fstrim.timer
-    state: started
-    enabled: yes
