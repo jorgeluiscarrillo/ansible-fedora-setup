@@ -22,15 +22,10 @@ dev_tools:
 cli_tools:
   - GraphicsMagick
   - ShellCheck
-  - atool
   - htop
   - jq
-  - mediainfo
-  - ncdu
   - neovim
-  - perl-Image-ExifTool
   - python3-streamlink
-  - ranger
   - stow
   - tldr
   - youtube-dl
@@ -50,18 +45,21 @@ i3_packages:
   - polkit-gnome
   - redshift
   - rofi
-  - udiskie
   - xss-lock
 
 # GUI applications
 extra_packages:
   - '@firefox'
   - '@libreoffice'
+  - Thunar
   - arandr
+  - gvfs
   - keepassxc
   - pavucontrol
   - sxiv
+  - thunar-volman
   - transmission
+  - tumbler
   - zathura
   - zathura-pdf-mupdf
 
