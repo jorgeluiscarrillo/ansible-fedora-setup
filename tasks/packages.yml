@@ -41,12 +41,14 @@
   command: "dnf copr enable -y {{ copr_better_fonts }}"
   args:
     creates: "/etc/yum.repos.d/{{ repo_better_fonts }}"
+    warn: no
   tags: packages
 
 - name: Add/Enable Iosevka Copr
   command: "dnf copr enable -y {{ copr_iosevka }}"
   args:
     creates: "/etc/yum.repos.d/{{ repo_iosevka }}"
+    warn: no
   tags: packages
 
 - name: Install packages
@@ -78,5 +80,4 @@
   dnf:
     autoremove: true
     state: absent
-  tags:
-    - packages
+  tags: packages
