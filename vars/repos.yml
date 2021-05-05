@@ -1,3 +1,4 @@
+---
 repo_modular:
   - fedora-modular.repo
   - fedora-updates-modular.repo
