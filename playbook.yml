@@ -1,9 +1,24 @@
 ---
-- hosts: localhost
+- name: Configure repos; Install packages; System administration
+  hosts: localhost
   become: yes
+  vars_files:
+    - vars/packages.yml
+    - vars/repos.yml
 
   tasks:
-    - include: tasks/repos.yml
-    - include: tasks/packages.yml
-    - include: tasks/flatpak.yml
-    - include: tasks/system.yml
+    - include_tasks: tasks/packages.yml
+      tags: packages
+
+    - include_tasks: tasks/config.yml
+      tags: config
+
+- name: User configuration
+  hosts: localhost
+  vars_files:
+    - vars/user.yml
+    - vars/repos.yml
+
+  tasks:
+    - include_tasks: tasks/user.yml
+      tags: user

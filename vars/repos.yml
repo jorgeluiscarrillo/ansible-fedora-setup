@@ -1,0 +1,20 @@
+repo_modular:
+  - fedora-modular.repo
+  - fedora-updates-modular.repo
+
+repo_rpmfusion: "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+
+repo_flathub: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+
+repo_vscode: "https://packages.microsoft.com/yumrepos/vscode"
+rpm_key_microsoft: "https://packages.microsoft.com/keys/microsoft.asc"
+
+copr_better_fonts: "dawid/better_fonts"
+repo_better_fonts: "_copr:copr.fedorainfracloud.org:dawid:better_fonts.repo"
+
+copr_iosevka: "peterwu/iosevka"
+repo_iosevka: "_copr:copr.fedorainfracloud.org:peterwu:iosevka.repo"
+
+repo_dotfiles: "https://github.com/jorgeluiscarrillo/dotfiles"
+repo_fontawesome: "https://api.github.com/repos/FortAwesome/Font-Awesome/releases/latest"
+repo_networkmanager_dmenu: "https://raw.githubusercontent.com/firecat53/networkmanager-dmenu/main/networkmanager_dmenu"

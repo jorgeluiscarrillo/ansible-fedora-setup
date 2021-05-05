@@ -1,0 +1,26 @@
+---
+- name: Set system-wide environment variable to enable Firefox hardware video acceleration
+  lineinfile:
+    path: /etc/environment
+    line: MOZ_X11_EGL=1
+  tags: config
+
+- name: Set Compose key to right Alt
+  command: 'localectl --no-convert set-x11-keymap us "" "" compose:ralt'
+  args:
+    creates: /etc/X11/xorg.conf.d/00-keyboard.conf
+  tags: config
+
+- name: Copy 00-fix-dbus.sh
+  copy:
+    src: 00-fix-dbus.sh
+    dest: /etc/X11/xinit/xinitrc.d
+    mode: '0755'
+  tags: config
+
+- name: Copy v4l2loopback.conf
+  copy:
+    src: v4l2loopback.conf
+    dest: /etc/modprobe.d
+    mode: '0644'
+  tags: config

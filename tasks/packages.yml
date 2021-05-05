@@ -1,65 +1,82 @@
 ---
-- name: DNF | Upgrade all packages
-  dnf:
-    name: "*"
-    state: latest
+- name: Do not install weak dependencies
+  lineinfile:
+    path: /etc/dnf/dnf.conf
+    line: install_weak_deps=False
+  tags: packages
 
-- name: DNF | Install essential packages that extend the minimal installation
-  dnf:
-    name: "{{ core }}"
-    state: present
-  tags: core
+- name: Disable Fedora Modular repos
+  lineinfile:
+    path: "/etc/yum.repos.d/{{ item }}"
+    regexp: '^enabled=1'
+    line: enabled=0
+  with_items: "{{ repo_modular }}"
+  tags: packages
 
-- name: DNF | Install printing support
+- name: Add/Enable RPM Fusion Free repository
   dnf:
-    name: "{{ printing }}"
+    name: "{{ repo_rpmfusion }}"
     state: present
-  tags: printing
+    disable_gpg_check: yes
+  tags: packages
 
-- name: DNF | Install virtualization environment (virt-manager)
-  dnf:
-    name: "{{ virtualization }}"
+- name: Add Microsoft GPG key
+  rpm_key:
     state: present
-  tags: virtualization
+    key: "{{ rpm_key_microsoft }}"
+  tags: packages
 
-- name: DNF | Install development environment
-  dnf:
-    name: "{{ dev_tools }}"
-    state: present
-  tags: dev_tools
+- name: Add/Enable VSCode YUM repository
+  yum_repository:
+    file: vscode
+    name: code
+    description: Visual Studio Code
+    baseurl: "{{ repo_vscode }}"
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: "{{ rpm_key_microsoft }}"
+  tags: packages
 
-- name: DNF | Install command-line utilities
-  dnf:
-    name: "{{ cli_tools }}"
-    state: present
-  tags: cli_tools
+- name: Add/Enable better_fonts Copr
+  command: "dnf copr enable -y {{ copr_better_fonts }}"
+  args:
+    creates: "/etc/yum.repos.d/{{ repo_better_fonts }}"
+  tags: packages
 
-- name: DNF | Install applications that make up an i3 desktop environment
-  dnf:
-    name: "{{ i3_packages }}"
-    state: present
-  tags: i3
+- name: Add/Enable Iosevka Copr
+  command: "dnf copr enable -y {{ copr_iosevka }}"
+  args:
+    creates: "/etc/yum.repos.d/{{ repo_iosevka }}"
+  tags: packages
 
-- name: DNF | Install GUI applications
+- name: Install packages
   dnf:
-    name: "{{ extra_packages }}"
+    name: "{{ packages }}"
     state: present
-  tags: extras
+  tags: packages
 
-- name: DNF | Install packages only available through RPMFusion (free)
-  dnf:
-    name: "{{ rpmfusion_packages }}"
+- name: Enable Flathub repository
+  flatpak_remote:
+    name: flathub
     state: present
-  tags: rpmfusion
+    flatpakrepo_url: "{{ repo_flathub }}"
+  tags: 
+    - packages
+    - flatpak
 
-- name: DNF | Install dawid/better_fonts from Fedora Copr
-  dnf:
-    name: "{{ better_fonts }}"
+# TODO: Use list of names https://github.com/ansible-collections/community.general/pull/267
+- name: Install flatpaks
+  flatpak:
+    name: "{{ item }}"
     state: present
-  tags: [ copr, better_fonts ]
+  with_items: "{{ flatpaks }}"
+  tags:
+    - packages
+    - flatpak
 
-- name: DNF | Install gagbo/kitty-latest from Fedora Copr
+- name: Autoremove unrequired packages installed as dependencies
   dnf:
-    name: "{{ kitty }}"
-    state: present
-  tags: [ copr, kitty ]
+    autoremove: true
+    state: absent
+  tags:
+    - packages

@@ -1,0 +1,5 @@
+---
+user: "{{ ansible_user_id }}"
+home_dir: "{{ lookup('env','HOME') }}"
+data_dir: "{{ home_dir }}/.local/share"
+cache_dir: "{{ home_dir }}/.cache"
