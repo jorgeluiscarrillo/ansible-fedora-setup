@@ -58,6 +58,7 @@ packages:
   - redshift
   - rofi
   - rpmconf
+  - setxkbmap
   - stow
   - sxiv
   - tldr
@@ -66,6 +67,8 @@ packages:
   - udiskie
   - v4l2loopback
   - v4l-utils
+  - xprop
+  - xrdb
   - xss-lock
   - youtube-dl
   - zathura
