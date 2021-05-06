@@ -5,12 +5,6 @@
     line: MOZ_X11_EGL=1
   tags: config
 
-- name: Set Compose key to right Alt
-  command: 'localectl --no-convert set-x11-keymap us "" "" compose:ralt'
-  args:
-    creates: /etc/X11/xorg.conf.d/00-keyboard.conf
-  tags: config
-
 - name: Copy 00-fix-dbus.sh
   copy:
     src: 00-fix-dbus.sh
