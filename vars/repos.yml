@@ -3,7 +3,7 @@ repo_modular:
   - fedora-modular.repo
   - fedora-updates-modular.repo
 
-repo_rpmfusion: "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+repo_rpmfusion: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
 
 repo_flathub: "https://dl.flathub.org/repo/flathub.flatpakrepo"
 
