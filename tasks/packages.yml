@@ -1,10 +1,4 @@
 ---
-- name: Do not install weak dependencies
-  lineinfile:
-    path: /etc/dnf/dnf.conf
-    line: install_weak_deps=False
-  tags: packages
-
 - name: Disable Fedora Modular repos
   lineinfile:
     path: "/etc/yum.repos.d/{{ item }}"
