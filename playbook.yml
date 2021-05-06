@@ -2,6 +2,8 @@
 - name: Configure repos; Install packages; System administration
   hosts: localhost
   become: yes
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   vars_files:
     - vars/packages.yml
     - vars/repos.yml
