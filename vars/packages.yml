@@ -53,6 +53,7 @@ packages:
   - polkit-gnome
   - python3-dnf-plugin-system-upgrade
   - python3-streamlink
+  - python-virtualenv
   - ranger
   - redshift
   - rofi
