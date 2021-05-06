@@ -12,7 +12,7 @@ Installs and configures most of the software I use on Fedora Workstation followi
         dnf install python-virtualenv
         virtualenv ansible-env
         source ansible-env/bin/activate
-        pip install ansible
+        pip install ansible selinux
         ```
 3. Clone this repository: `git clone https://github.com/jorgeluiscarrillo/ansible-fedora-setup`
 
